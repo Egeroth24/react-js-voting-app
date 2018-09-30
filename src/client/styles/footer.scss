@@ -1,0 +1,39 @@
+@import '../styles/variables.scss';
+
+#footer {
+    height: 175px;
+    background-color: $primaryColour;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+    .row {
+        margin-bottom: 0;
+    }
+
+    p:first-child {
+        margin-top: 0;
+    }
+
+    a {
+        color: white;
+        transition: color .3s ease;
+        &:hover {
+            color: black;
+        }
+    }
+
+    .fa {
+        color: white;
+        font-size: 30px;
+        padding-left: 8px;
+        padding-right: 8px;
+        transition: color .25s;
+        &:hover {
+            color: black;
+            transition: color .25s;
+        }
+    }
+    
+}

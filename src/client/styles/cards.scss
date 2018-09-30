@@ -1,0 +1,203 @@
+@import '../styles/variables.scss';
+
+#cards {
+    background-color: $primaryColour;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    h1 {
+        color: white;
+        text-align: center;
+    }
+
+    .card {
+        text-align: left;
+        min-height: 444px;
+    
+        i {
+            pointer-events: none;
+        }
+    
+        .pollInfo {
+            height: 30px;
+            color: black;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas: "author time votes";
+            grid-gap: 2px;
+            @media only screen and (max-width: 600px) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+    
+            .authorInfo {
+                grid-area: author;
+            }
+            .timeInfo {
+                grid-area: time;
+            }
+            .votesInfo {
+                grid-area: votes;
+            }
+    
+            div {
+                display: inline-block;
+                padding: 0;
+                vertical-align: top;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+        
+                i, span {
+                    height: 30px;
+                    line-height: 30px;
+                    vertical-align: top;
+                    text-align: left;
+                    display: inline-block;
+                }
+              
+              span {
+                  padding-left: 4px;
+              }
+          
+            }
+        
+          }
+    
+        .card-content {
+    
+            @media only screen  and (max-width: 600px) {
+                padding: 10px !important; // !important is necessary to override Materialize.
+            }
+    
+            .preloaderContainer {
+                height: 444px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                .preloader-wrapper {
+                    top: -25px;
+                }
+    
+            }
+    
+            .cardTitleWithDeleteIconGrid {
+                display: grid;
+                grid-template-columns: 1fr 60px;
+                grid-template-areas: "card-title deletePollBtn";
+            
+                .card-title {
+                    grid-area: card-title;
+                    display: block;
+                    color: $primaryColour;
+                    padding-right: 10px;
+                }
+            
+                .deletePollBtn {
+                    grid-area: deletePollBtn;
+                    width: 50px;
+                    padding: 0;
+                    margin: 0 auto 0 auto;
+                    @media only screen and (max-width: 600px) {
+                        width: 40px;
+                    }
+                }
+        
+            }
+        
+            .card-title {
+                color: $primaryColour;
+                display: inline-block;
+                &:hover {
+                    text-decoration: underline;
+                }
+        
+            }
+        
+            .cardGrid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                grid-template-areas:
+                "cardVote cardChart"
+                "cardAddOption cardChart";
+                @media only screen and (max-width: 600px) {
+                    grid-template-areas:
+                    "cardVote cardVote"
+                    "cardAddOption cardAddOption"
+                    "cardChart cardChart";
+                }
+        
+                .cardVote {
+                    grid-area: cardVote;
+                }
+    
+                .select-dropdown {
+                    margin-bottom: 22px;
+                }
+                .select-dropdown:focus {
+                    border-bottom: 1px solid $primaryColour;
+                }
+    
+                .dropdown-content li span {
+                    color: $primaryColour;
+                }
+                li.disabled span {
+                    color: grey;
+                }
+                  
+                .cardAddOption {
+                    grid-area: cardAddOption;
+    
+                    .loginOrRegister {
+                        a {
+                            color: $primaryColour;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                        @media only screen and (max-width: 600px) {
+                            p.loginOrRegister {
+                                margin-top: 45px;
+                            }
+                        }
+                    }
+    
+                }
+    
+                .addOptionOr {
+                    font-size: 16px;
+                    margin-bottom: 16px;
+                }
+    
+                input:focus {
+                    border-bottom: 1px solid $primaryColour !important;  // !important is necessary to override the !important in Materialize.
+                    box-shadow: 0 1px 0 0 $primaryColour !important;
+                }
+                input:focus+label {
+                    color: $primaryColour !important;
+                }
+    
+                .submitContainer {
+                    margin-top: 20px;
+                }
+        
+                .cardChart {
+                    grid-area: cardChart;
+                    display: flex;
+                    justify-self: center;
+                    align-items: center;
+
+                    .noVotes {
+                        color: $primaryColour;
+                    }
+
+                }
+        
+            }
+        
+        }
+    
+    }
+
+}

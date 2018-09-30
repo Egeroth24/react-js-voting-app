@@ -1,0 +1,17 @@
+@import '../styles/variables.scss';
+
+#myPollsPage {
+    background-color: $primaryColour;
+
+    .pollsYouCreate {
+        color: $primaryColour;
+        font-size: 24px;
+        text-align: center;
+        margin: 100px 0 25px 0;
+    }
+
+    .btnContainer {
+        text-align: center;
+    }
+
+}

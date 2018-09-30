@@ -1,0 +1,39 @@
+@import '../styles/variables.scss';
+
+.mainForm {
+    display: grid;
+    grid-template-columns: auto 40% auto;
+    grid-template-areas:
+    ". formContainer .";
+    @media (max-width: 1000px) {
+        grid-template-columns: auto 55% auto;
+    }
+    @media (max-width: 600px) {
+        grid-template-columns: auto 75% auto;
+    }
+
+    .formContainer {
+        grid-area: formContainer;
+    }
+
+    h1 {
+        color: $primaryColour;
+        font-size: 56px;
+        font-weight: 200;
+        margin: 10px auto 10px auto;
+    }
+
+    .input-field {
+        margin-bottom: 26px;
+
+        input:focus {
+            border-bottom: 1px solid $primaryColour !important;  // !important is necessary to override the !important in Materialize.
+            box-shadow: 0 1px 0 0 $primaryColour !important;
+        }
+        input:focus+label {
+            color: $primaryColour !important;
+        }
+      
+    }
+
+}

@@ -1,0 +1,49 @@
+@import '../styles/variables.scss';
+
+#nav {
+    background-color: $primaryColour;
+    height: 64px;
+    overflow: hidden;
+
+    .hide-on-med-and-down {
+
+        a {
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        #user {
+            width: auto;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            i {
+                float: left;
+                margin-right: 6px;
+                font-size: 28px;
+            }
+
+        }
+        
+    }
+
+}
+
+#mobileUser {
+    height: 48px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    i {
+        float: left;
+        line-height: 48px;
+        margin-right: 6px;
+    }
+    span {
+        font-weight: 500;
+    }
+
+
+}

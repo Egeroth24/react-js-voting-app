@@ -1,0 +1,39 @@
+@import '../styles/variables.scss';
+
+* {
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
+}
+
+html {
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%)); /* Prevents content jumping between pages with and without a scrollbar.  */
+    @media (max-width: 600px) {
+        margin-right: 0;
+    }
+}
+
+.main {
+    min-height: $minHeight;
+}
+
+.btn {
+    background-color: $primaryColour !important; // !important is necessary to override default Materialize style.
+    &:hover {
+        background-color: #D04946 !important;
+    }
+}
+
+.inputError {
+    display: block;
+    position: absolute;
+    top: 46px;
+    color: $primaryColour;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity .5s;
+    &.visible {
+      opacity: 1;
+      transition: opacity .5s;
+    }
+}

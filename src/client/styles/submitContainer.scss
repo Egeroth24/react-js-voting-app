@@ -1,0 +1,112 @@
+.submitContainer {
+    display: grid;
+    grid-template-columns: 80px 36px auto;
+    grid-template-areas: "submit preloader error";
+    align-items: center;
+    grid-column-gap: 4px;
+
+    .submit {
+        grid-area: submit;
+    }
+
+    .preloader-wrapper {
+        grid-area: preloader;
+        .spinner-layer {
+            padding: 4px;
+        }
+    }
+
+    .error {
+        grid-area: error;
+        display: inline-block;
+        position: static;
+        font-size: 12px;
+    }
+    
+    .xMarkContainer {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        visibility: hidden;
+        display: block;
+        stroke-width: 2;
+        stroke: #f44336;
+        stroke-miterlimit: 10;
+      
+        .xMark1, .xMark2 {
+          transform-origin: 50% 50%;
+          stroke-dasharray: 29;
+          stroke-dashoffset: 29;
+          &.draw {
+            animation: draw 0.2s forwards;
+          }
+        }
+        .xMark2 {
+          &.draw {
+            animation-delay: .2s;
+          }
+        }
+        @keyframes draw {
+          100% {
+            stroke-dashoffset: 0;
+          }
+        }
+    }
+
+    $check-height: 22px; // Long side length.
+    $check-width: 10px; // Long side length.
+    $check-thickness: 2px;
+    $check-color: green;
+    $check-left: -2px;
+    $check-top: 40px;
+    .checkmark { // Originally from https://codepen.io/scottloway/pen/zqoLyQ
+        position: absolute;
+        top: -22px;
+        left: 9px;
+        visibility: hidden;
+
+        &:after {
+            opacity: 1;
+            height: $check-height;
+            width: $check-width;
+            transform-origin: left top;
+            border-right: $check-thickness solid $check-color;
+            border-top: $check-thickness solid $check-color;
+            content: '';
+            left: $check-left;
+            top: $check-top;
+            position: absolute;
+        }
+
+        &.draw:after {
+            animation-duration: 800ms;
+            animation-timing-function: ease;
+            animation-name: checkmark;
+            transform: scaleX(-1) rotate(135deg);
+        }
+
+        @keyframes checkmark {
+            0% {
+            height: 0;
+            width: 0;
+            opacity: 1;
+            }
+            20% {
+            height: 0;
+            width: $check-width;
+            opacity: 1;
+            }
+            40% {
+            height: $check-height;
+            width: $check-width;
+            opacity: 1;
+            }
+            100% {
+            height: $check-height;
+            width: $check-width;
+            opacity: 1;
+            }
+        }
+    }
+
+}

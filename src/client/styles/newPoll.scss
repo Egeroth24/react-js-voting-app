@@ -1,0 +1,45 @@
+@import '../styles/variables.scss';
+
+#optionsLabel {
+    color: $primaryColour;
+    font-size: 18px;
+}
+
+#formOptionsError {
+    // Materialize chips doesn't allow for elements inside the chips div that fakes an input element,
+    // which is where we normally put errors, so we have to change the positioning a little.
+    position: relative;
+    top: -24px;
+    @media (min-width: 1200px) {
+        // Materialize inputs increase in height at 1200px. This pushes down the .invalid bottom border. Since our input errors are positioned absolutely,
+        // however, they do not get pushed down. Since our chips/formOptionsError is not positioned absolutely, it *does* get pushed down.
+        // This simply maintains the uniform spacing between our input and chips bottom border and error element across screen widths.
+        top: -27px;
+    }
+}
+
+#chipsContainer {
+    &.focus {
+        border-bottom-color: $primaryColour;
+        box-shadow: 0 1px 0 0 $primaryColour;
+    }
+
+    .input {
+        border-bottom: none !important; // !important is necessary to override Materialize.
+        box-shadow: none !important;
+        width: 100% !important;
+        color: black;
+    }
+
+    .chip {
+        margin-bottom: 4px;
+        color: white;
+        background-color: $primaryColour;
+        cursor: pointer;
+        &:focus {
+            background-color: $primaryColourHover;
+        }
+    }
+
+
+}
