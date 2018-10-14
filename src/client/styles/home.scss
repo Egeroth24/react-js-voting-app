@@ -2,7 +2,7 @@
 
 #homePage {
     #indexBanner {
-        height: $minHeight;
+        height: 100%;
         display: grid;
         grid-template-columns: .5fr 1fr .5fr;
         grid-template-rows: .2fr 1fr .2fr;
